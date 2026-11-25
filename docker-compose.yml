@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: enterpriseiq
+      POSTGRES_PASSWORD: enterpriseiq
+      POSTGRES_DB: enterpriseiq
+    ports:
+      - "5432:5432"
+    volumes:
+      - eiq_pg_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://enterpriseiq:enterpriseiq@db:5432/enterpriseiq
+    ports:
+      - "8000:8000"
+    volumes:
+      - eiq_uploads:/app/uploads
+      - eiq_chroma:/app/chroma_db
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    environment:
+      VITE_API_PROXY: http://backend:8000
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+volumes:
+  eiq_pg_data:
+  eiq_uploads:
+  eiq_chroma:

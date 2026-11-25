@@ -1,0 +1,6 @@
+period,department,metric_name,actual_value,target_value,unit,analyst_notes
+2026-12,Sales,revenue,1395000,1620000,USD,Two paused enterprise renewals reactivated in Dec 2026 (+6.5% MoM revenue rebound)
+2026-12,Operations,operating_expenses,1015000,955000,USD,Fixed-rate carrier contracts reduced spot-freight spend by $57K vs Nov 2026
+2026-12,Finance,net_profit,380000,665000,USD,Net profit margin recovered from 18.2% to 27.2% following OpEx containment
+2026-12,Customer Support,customer_complaints,194,120,tickets,Proactive delay alerts and VIP queue cut escalations by 21.1% MoM
+2026-12,Operations,delivery_cost,298000,230000,USD,West and South corridor freight surcharges down $50K after maintenance catch-up
